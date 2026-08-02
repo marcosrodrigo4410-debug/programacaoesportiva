@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jogosdehoje.top/sitemap.xml

@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  /* Definição das variáveis de cor com base na imagem */
+  --bg-color: #1a1d21; /* Black Pearl */
+  --primary-text-color: #c9a66b; /* Deep Gold */
+  --secondary-text-color: #ffffff; /* Soccer White */
+  --accent-gold: #d4b37a; /* Gilded Screen */
+  --dark-overlay: #000000; /* Dark Onyx */
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--secondary-text-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+
+  color: var(--primary-text-color);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--secondary-text-color);
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn {
+  text-decoration: none;
+
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid var(--primary-text-color);
+  background: var(--dark-overlay);
+  color: var(--primary-text-color);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background-color: var(--accent-gold);
+  color: var(--bg-color);
+}
+
+/* Botão de Destaque */
+.btn-highlight {
+  background: linear-gradient(
+    135deg,
+    var(--primary-text-color) 0%,
+    var(--accent-gold) 100%
+  );
+  color: var(--dark-overlay);
+  border: none;
+  box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+.btn-highlight:hover {
+  box-shadow: 0 15px 25px var(--shadow-color);
+}
+
+footer {
+  margin-top: 50px;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+/* Classe para a animação de revelação */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0);
+}

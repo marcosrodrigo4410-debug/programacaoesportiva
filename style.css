@@ -1,0 +1,829 @@
+/* ========================
+   RESET
+======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================
+   BASE
+======================== */
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0b1220;
+  color: #eaf2ff;
+  line-height: 1.6;
+}
+
+/* ========================
+   HEADER
+======================== */
+header {
+  background: linear-gradient(90deg, #1e40af, #1d4ed8);
+  text-align: center;
+  padding: 25px 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+header img {
+  width: 180px;
+  margin-bottom: 15px;
+}
+
+.menu-mobile {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.menu-mobile h2 {
+  color: #fff;
+}
+
+#menu-btn {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+#menu-btn.open {
+  color: #fbd513;
+}
+
+.menu-mobile {
+  display: none;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: #fbd513;
+  font-size: 2rem;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-icon {
+  display: none;
+}
+
+/* ========================
+   MAIN CONTAINER
+======================== */
+main {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+/* 
+div {
+  display: flex;
+  flex-direction: column;
+} */
+
+.btn-fullscreen {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  margin: 10px;
+}
+
+/* ========================
+   TYPOGRAPHY
+======================== */
+h1 {
+  font-size: 4.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3.4rem;
+  margin-bottom: 15px;
+  color: #fbd513;
+}
+
+p {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #dbeafe;
+}
+
+/* ========================
+   SECTIONS
+======================== */
+.container {
+  margin-bottom: 60px;
+  padding: 20px;
+  background: #111827;
+  border-radius: 14px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* ========================
+   SCROLL REVEAL
+======================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ========================
+   IMAGE GRID
+======================== */
+.div-imagens {
+  display: flex;
+
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.container-imagens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+/* CARD DE CADA IMAGEM */
+.container-imagens > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* IMAGENS */
+.div-imagens img {
+  width: 300px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 3px solid #fbd513;
+  background: linear-gradient(100deg, #1a2438 30%, #24304a 50%, #1a2438 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.div-imagens img.loaded {
+  animation: none;
+  background: none;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* BOTÃO */
+.btn-fullscreen {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+}
+
+.div-imagens img:hover {
+  transform: scale(1.05);
+  border-color: #fff;
+  box-shadow: 0 10px 25px rgba(251, 213, 19, 0.25);
+}
+
+/* responsivo */
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+  .container-imagens {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-imagens > div {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .div-imagens img {
+    width: 100%;
+  }
+
+  .img-desktop {
+    display: none;
+  }
+  .menu-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #menu-btn {
+    display: block;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #menu-btn.open {
+    transform: rotate(90deg);
+  }
+
+  header {
+    position: relative;
+  }
+
+  /* fundo escurecido atrás do menu, fecha ao tocar fora */
+  #menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 8, 20, 0);
+    pointer-events: none;
+    transition: background 0.3s ease;
+    z-index: 40;
+  }
+
+  #menu-backdrop.active {
+    background: rgba(4, 8, 20, 0.6);
+    pointer-events: auto;
+  }
+
+  /* menu flutuante estilo cartão */
+  nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 14px;
+    right: 14px;
+    z-index: 50;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    background: linear-gradient(160deg, #16213c, #0b1220);
+    border: 1px solid rgba(251, 213, 19, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px) scale(0.97);
+    transform-origin: top center;
+    pointer-events: none;
+    transition:
+      max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.25s ease,
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  nav.active {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+    padding: 10px;
+  }
+
+  nav li {
+    padding: 0;
+    border-top: none;
+    opacity: 0;
+    transform: translateX(-14px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  nav.active li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  nav.active li:nth-child(1) {
+    transition-delay: 0.05s;
+  }
+  nav.active li:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+  nav.active li:nth-child(3) {
+    transition-delay: 0.15s;
+  }
+  nav.active li:nth-child(4) {
+    transition-delay: 0.2s;
+  }
+  nav.active li:nth-child(5) {
+    transition-delay: 0.25s;
+  }
+
+  nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 1.8rem;
+  }
+
+  nav a::after {
+    display: none;
+  }
+
+  nav a:hover,
+  nav a:active {
+    background: rgba(251, 213, 19, 0.14);
+    color: #fff;
+  }
+
+  .nav-icon {
+    display: inline-block;
+    font-size: 2rem;
+  }
+
+  .btn-fullscreen {
+    display: none;
+  }
+}
+
+/* expandir imagem / ver em tela cheia */
+
+.btn-fullscreen {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border: solid 1px #fbd513;
+  transition:
+    background 0.25s ease,
+    transform 0.15s ease;
+}
+
+.btn-fullscreen:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.btn-fullscreen:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-conteudo {
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  border: solid 2px #fbd513;
+  border-radius: 5px;
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal.open .modal-conteudo {
+  transform: scale(1);
+}
+
+.fechar {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.fechar:hover {
+  color: #fbd513;
+  transform: rotate(90deg);
+}
+
+/* ========================
+   FOOTER
+======================== */
+footer {
+  background: #1e40af;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  height: max-content;
+}
+
+footer p {
+  font-size: 1.4rem;
+}
+
+/* ===================================
+   BANNER ESPORTIVO
+=================================== */
+
+.sports-banner {
+  position: relative;
+
+  height: 400px;
+
+  margin: 25px auto;
+
+  padding: 30px;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(rgba(5, 10, 25, 0.88), rgba(5, 10, 25, 0.92)),
+    url("brasil.jpeg");
+
+  background-size: cover;
+  background-position: top;
+
+  border: 2px solid #2563eb;
+
+  box-shadow:
+    0 0 20px rgba(37, 99, 235, 0.35),
+    0 0 45px rgba(59, 130, 246, 0.15);
+
+  animation: brilhoEsportivo 4s infinite alternate;
+}
+
+.sports-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.sports-banner h2 {
+  font-size: 4rem;
+  color: #fbd513;
+  margin-top: 40px;
+  /* margin-bottom: 10px; */
+}
+
+.sports-banner p {
+  font-size: 2rem;
+  color: #eaf2ff;
+  /* margin-bottom: 20px; */
+}
+
+/* CONTADOR */
+
+#contador-copa {
+  /* display: inline-block; */
+
+  #contador-copa {
+    display: block;
+    min-height: 80px;
+  }
+
+  padding: 15px 28px;
+
+  background: rgba(15, 23, 42, 0.9);
+
+  border: 2px solid #fbd513;
+
+  border-radius: 14px;
+
+  font-size: 3rem;
+  font-weight: bold;
+
+  color: #ffffff;
+
+  box-shadow: 0 0 15px rgba(251, 213, 19, 0.3);
+}
+
+/* ÍCONES ESPORTIVOS */
+
+.sports-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sports-icons span {
+  position: absolute;
+
+  bottom: -80px;
+
+  font-size: 4rem;
+
+  opacity: 0.18;
+
+  animation: subirEsportes 12s linear infinite;
+}
+
+.sports-icons span:nth-child(1) {
+  left: 12%;
+  animation-delay: 0s;
+}
+
+.sports-icons span:nth-child(2) {
+  left: 50%;
+  animation-delay: 3s;
+}
+
+.sports-icons span:nth-child(3) {
+  left: 82%;
+  animation-delay: 6s;
+}
+
+/* CARD COPA */
+
+.card-copa {
+  margin: 40px 0;
+}
+
+.card-copa-conteudo {
+  background: linear-gradient(135deg, #0f172a, #111827);
+
+  border: 2px solid #2563eb;
+
+  border-radius: 18px;
+
+  padding: 35px;
+
+  text-align: center;
+
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.18);
+}
+
+.card-copa h2 {
+  font-size: 3.5rem;
+  color: #fbd513;
+  margin-bottom: 15px;
+}
+
+.card-copa p {
+  font-size: 2rem;
+  color: #dbeafe;
+}
+
+/* MINI ÍCONES */
+
+.mini-icons {
+  margin-top: 25px;
+
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+
+  font-size: 3.5rem;
+}
+
+.mini-icons span {
+  animation: pulseSports 2s infinite;
+}
+
+.mini-icons span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.mini-icons span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.mini-icons span:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes subirEsportes {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.18;
+  }
+
+  100% {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes brilhoEsportivo {
+  from {
+    box-shadow:
+      0 0 20px rgba(37, 99, 235, 0.25),
+      0 0 35px rgba(59, 130, 246, 0.1);
+  }
+
+  to {
+    box-shadow:
+      0 0 35px rgba(37, 99, 235, 0.5),
+      0 0 60px rgba(59, 130, 246, 0.25);
+  }
+}
+
+@keyframes pulseSports {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+  .sports-banner {
+    padding: 22px;
+  }
+
+  .sports-banner h2 {
+    font-size: 2.6rem;
+  }
+
+  .sports-banner p {
+    font-size: 1.6rem;
+  }
+
+  #contador-copa {
+    font-size: 2rem;
+    padding: 12px 18px;
+  }
+
+  .sports-icons span {
+    font-size: 3rem;
+  }
+
+  .card-copa h2 {
+    font-size: 2.4rem;
+  }
+
+  .card-copa p {
+    font-size: 1.7rem;
+  }
+
+  .mini-icons {
+    font-size: 2.6rem;
+    gap: 12px;
+  }
+}
+
+/* ========================
+   RESPONSIVO
+======================== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.6rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .div-imagens img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    padding: 15px;
+  }
+
+  .container {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .container-imagens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .container-imagens div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  p {
+    text-align: center;
+  }
+
+  .btn-fullscreen {
+    margin-top: 12px;
+  }
+
+  .clique {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: linear-gradient(90deg, #0f172a, #1e3a8a);
+    height: 30px;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 30px;
+    border-radius: 5px;
+  }
+}
