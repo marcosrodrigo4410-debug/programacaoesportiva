@@ -827,3 +827,62 @@ footer p {
     border-radius: 5px;
   }
 }
+
+/* ========================
+   APLICATIVOS
+======================== */
+.apps-lista {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.app-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 240px;
+  max-width: 100%;
+  padding: 24px 16px;
+  background: #0b1220;
+  border: solid 1px #fbd513;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #eaf2ff;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(251, 213, 19, 0.2);
+}
+
+.app-icone {
+  font-size: 4.8rem;
+  line-height: 1;
+}
+
+.app-nome {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fbd513;
+}
+
+.app-info {
+  font-size: 1.5rem;
+  color: #9fb3d1;
+}
+
+.app-botao {
+  margin-top: 10px;
+  padding: 8px 24px;
+  background: #fbd513;
+  color: #000;
+  border-radius: 6px;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
