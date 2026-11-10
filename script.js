@@ -230,3 +230,30 @@ document.querySelectorAll(".div-imagens img").forEach((img) => {
   }
 });
 
+
+// ===============================
+// 🔦 ITEM ATIVO DO MENU (segue a seção visível)
+// ===============================
+
+const linksMenu = document.querySelectorAll('nav a[href^="#"]');
+
+function marcarAtivo(hash) {
+  linksMenu.forEach((link) => {
+    link.classList.toggle("ativo", link.getAttribute("href") === hash);
+  });
+}
+
+const menuObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) marcarAtivo("#" + entry.target.id);
+    });
+  },
+  { rootMargin: "-45% 0px -50% 0px" }
+);
+
+linksMenu.forEach((link) => {
+  const secao = document.querySelector(link.getAttribute("href"));
+  if (secao) menuObserver.observe(secao);
+  link.addEventListener("click", () => marcarAtivo(link.getAttribute("href")));
+});
